@@ -43,6 +43,9 @@
         position: relative;
         cursor: pointer;
       }
+      table td.blue {
+        background-color: blue;
+      }
       table td img {
         width: 100px;
         height: 100px;
@@ -57,8 +60,17 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $("td").click(function(e) {
-          $(this).children("img").show();
+        var today = new Date(),
+            start = new Date(2014, 8, 17),
+            days = Math.ceil((start.getTime() - today.getTime())/(1000*3600*24));
+
+        if (days >= 0)
+          for (var day = 0; day <= days; day++) {
+            $("td[data-day=" + day + "]").addClass("blue");
+          }
+
+        $("td.blue").click(function(e) {
+          $(this).children("img").fadeIn();
         });
       });
     </script>
@@ -68,71 +80,71 @@
       <div class="container">
         <table border="1" cellspacing="0" cellpadding="0">
           <tr>
-            <td>
+            <td data-day="0">
               <img src="img/color-me-rad.jpg" style="display:none;" />
               <div class="num">14</div>
             </td>
-            <td>
+            <td data-day="1">
               <img src="img/eloi.jpg" style="display:none;" />
               <div class="num">13</div>
             </td>
-            <td>
+            <td data-day="2">
               <img src="img/emilia-bebe.jpg" style="display:none;" />
               <div class="num">12</div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td data-day="3">
               <img src="img/emilia-naomi.jpg" style="display:none;" />
               <div class="num">11</div>
             </td>
-            <td>
+            <td data-day="4">
               <img src="img/martin.jpg" style="display:none;" />
               <div class="num">10</div>
             </td>
-            <td>
+            <td data-day="5">
               <img src="" style="display:none;" />
               <div class="num">9</div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td data-day="6">
               <img src="" style="display:none;" />
               <div class="num">8</div>
             </td>
-            <td>
+            <td data-day="7">
               <img src="" style="display:none;" />
               <div class="num">7</div>
             </td>
-            <td>
+            <td data-day="8">
               <img src="" style="display:none;" />
               <div class="num">6</div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td data-day="9">
               <img src="" style="display:none;" />
               <div class="num">5</div>
             </td>
-            <td>
+            <td data-day="10">
               <img src="" style="display:none;" />
               <div class="num">4</div>
             </td>
-            <td>
+            <td data-day="11">
               <img src="" style="display:none;" />
               <div class="num">3</div>
             </td>
           </tr>
           <tr>
-            <td>
+            <td data-day="12">
               <img src="" style="display:none;" />
               <div class="num">2</div>
             </td>
-            <td>
+            <td data-day="13">
               <img src="" style="display:none;" />
               <div class="num">1</div>
             </td>
-            <td>
+            <td data-day="14">
               <img src="" style="display:none;" />
               <div class="num">0</div>
             </td>
