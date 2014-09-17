@@ -41,6 +41,7 @@
         text-align: center;
         overflow: hidden;
         position: relative;
+        cursor: pointer;
       }
       table td img {
         width: 100px;
@@ -55,7 +56,11 @@
     </style>
 
     <script type="text/javascript">
-
+      $(document).ready(function() {
+        $("td").click(function(e) {
+          $(this).children("img").show();
+        });
+      });
     </script>
   </head>
 
@@ -64,25 +69,25 @@
         <table border="1" cellspacing="0" cellpadding="0">
           <tr>
             <td>
-              <img src="img/chameau.jpg" style="display:none;" />
+              <img src="img/color-me-rad.jpg" style="display:none;" />
               <div class="num">14</div>
             </td>
             <td>
-              <img src="" style="display:none;" />
+              <img src="img/eloi.jpg" style="display:none;" />
               <div class="num">13</div>
             </td>
             <td>
-              <img src="" style="display:none;" />
+              <img src="img/emilia-bebe.jpg" style="display:none;" />
               <div class="num">12</div>
             </td>
           </tr>
           <tr>
             <td>
-              <img src="" style="display:none;" />
+              <img src="img/emilia-naomi.jpg" style="display:none;" />
               <div class="num">11</div>
             </td>
             <td>
-              <img src="" style="display:none;" />
+              <img src="img/martin.jpg" style="display:none;" />
               <div class="num">10</div>
             </td>
             <td>
