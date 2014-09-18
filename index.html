@@ -40,8 +40,8 @@
         color: white;
         text-align: center;
         overflow: hidden;
-        position: relative;
         cursor: pointer;
+        position: relative;
       }
       table td.blue {
         background-color: blue;
@@ -50,11 +50,18 @@
         width: 100px;
         height: 100px;
         position: absolute;
-        left: 0;
+        right: 0;
         top: 0;
       }
       table td .num {
         font-size: 40px;
+      }
+      img#big {
+        right: 50%;
+        top: 10%;
+        width: 500px;
+        height: 500px;
+        position: fixed;
       }
     </style>
 
@@ -62,7 +69,8 @@
       $(document).ready(function() {
         var today = new Date(),
             start = new Date(2014, 8, 17),
-            days = Math.ceil((start.getTime() - today.getTime())/(1000*3600*24));
+            days = Math.ceil((start.getTime() - today.getTime())/(1000*3600*24)),
+            $big = $("img#big");
 
         if (days >= 0)
           for (var day = 0; day <= days; day++) {
@@ -70,7 +78,13 @@
           }
 
         $("td.blue").click(function(e) {
-          $(this).children("img").fadeIn();
+          var $img = $(this).children("img");
+          $img.fadeIn();
+          $big.attr("src", $img.attr("src")).fadeIn();
+        });
+
+        $big.click(function(e) {
+          $big.fadeOut();
         });
       });
     </script>
@@ -103,49 +117,49 @@
               <div class="num">10</div>
             </td>
             <td data-day="5">
-              <img src="" style="display:none;" />
+              <img src="img/melanie-eloi.jpg" style="display:none;" />
               <div class="num">9</div>
             </td>
           </tr>
           <tr>
             <td data-day="6">
-              <img src="" style="display:none;" />
+              <img src="img/eloi-chapeau.jpg" style="display:none;" />
               <div class="num">8</div>
             </td>
             <td data-day="7">
-              <img src="" style="display:none;" />
+              <img src="img/martin-eloi.jpg" style="display:none;" />
               <div class="num">7</div>
             </td>
             <td data-day="8">
-              <img src="" style="display:none;" />
+              <img src="img/freres.jpg" style="display:none;" />
               <div class="num">6</div>
             </td>
           </tr>
           <tr>
             <td data-day="9">
-              <img src="" style="display:none;" />
+              <img src="img/francine-eloi.jpg" style="display:none;" />
               <div class="num">5</div>
             </td>
             <td data-day="10">
-              <img src="" style="display:none;" />
+              <img src="img/martin-eloi-balancoir.jpg" style="display:none;" />
               <div class="num">4</div>
             </td>
             <td data-day="11">
-              <img src="" style="display:none;" />
+              <img src="img/martin-ludovic.jpg" style="display:none;" />
               <div class="num">3</div>
             </td>
           </tr>
           <tr>
             <td data-day="12">
-              <img src="" style="display:none;" />
+              <img src="img/martin-piscine.jpg" style="display:none;" />
               <div class="num">2</div>
             </td>
             <td data-day="13">
-              <img src="" style="display:none;" />
+              <img src="img/melanie-avion.jpg" style="display:none;" />
               <div class="num">1</div>
             </td>
             <td data-day="14">
-              <img src="" style="display:none;" />
+              <img src="img/martin-melanie.jpg" style="display:none;" />
               <div class="num">0</div>
             </td>
           </tr>
@@ -153,5 +167,6 @@
         <img src="img/avion.png" class="plane start" />
         <img src="img/avion.png" class="plane end" />
       </div>
+      <img id="big" src="" style="display:none;" />
   </body>
 </html>
