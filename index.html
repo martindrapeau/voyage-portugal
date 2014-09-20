@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link href="apple_touch_icon.png" rel="apple-touch-icon" />
     <meta name="viewport" content="width=1060, user-scalable=no"/>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <script src="js/jquery.min.js" type="text/javascript"></script>
     
@@ -71,12 +70,12 @@
     <script type="text/javascript">
       $(document).ready(function() {
         var today = new Date(),
-            start = new Date(2014, 8, 17),
-            days = Math.ceil((start.getTime() - today.getTime())/(1000*3600*24)),
+            start = new Date(2014, 8, 21),
+            days = Math.ceil((today.getTime() - start.getTime())/(1000*3600*24)),
             $big = $("img#big");
 
         if (days >= 0)
-          for (var day = 0; day <= days; day++) {
+          for (var day = 0; day < days; day++) {
             $("td[data-day=" + day + "]").addClass("blue");
           }
 
